@@ -17,59 +17,66 @@ get_header ();
 ?>
 
 
-<a class="anchor" id="top"></a>
+<a class="anchor" id="top" >TOP</a>
 <div class="container">
 	<div class="jumbotron">
-		<h1>Mike's Affordable Used Bikes</h1>
-		<p>I sell quality used bike's for often less than what you'd pay for a
+		<h1>Mike&#39;s Affordable Used Bikes</h1>
+		<p>I sell quality used bike&#39;s for often less than what you&#39;d pay for a
 			new junky department store bike.</p>
 	</div>
 	<div id="imgMenuContainer">
-		<div class="imgMenu">
-			<a href="#roadBikes"><div class="moduleRoad opp">
+		<div class="imgMenu row">
+			<div class="col-md-6">
+				<a href="#roadBikes"><div class="moduleRoad opp">
 					<h2>Road Bikes</h2>
-				</div></a> <a href="#mountainBikes"><div class="moduleMountain opp">
-					<h2>Mountain Bikes</h2>
+					<img src='<?=get_theme_root_uri()?>/bikes/blueroadbike-400x300.jpg' />
 				</div></a>
+			</div> 
+			<div class="col-md-6">
+				<a href="#mountainBikes"><div class="moduleMountain opp">
+					<h2>Mountain Bikes</h2>
+					<img src='<?=get_theme_root_uri()?>/bikes/mountainbikes-1.jpg' />
+				</div></a>
+			</div>
 		</div>
 	</div>
-	<a class="anchor" id="about"></a>
+	<a class="anchor" id="about">About</a>
 	<div class="row">
-
-		<div class="">
-			<h2>About</h2>
+        <h2>About</h2>
+		<div class="col-xs-12">
 			<p>I have a love for vintage bikes from the 70s, 80s and 90s. The
-				bikes I’m currently riding the most are a Schwinn Varsity from the
+				bikes I&#39;m currently riding the most are a Schwinn Varsity from the
 				late 60s and a Raleigh Rocky II mountain bike from the 80s.</p>
-			<p>A lot of the bikes I sell are bike’s that I also ride. I’ll
+			<p>A lot of the bikes I sell are bike&#39;s that I also ride. I’ll
 				buy the bike; usually from a non profit; fix it; list it on CL and
-				ride it while I’m waiting for a buyer. The two bike’s I
-				mentioned above are bike’s which I had first intended on selling
+				ride it while I’m waiting for a buyer. The two bike&#39;s I
+				mentioned above are bike&#39;s which I had first intended on selling
 				but no buyers were interested and I eventually fell in love with
 				their ride and decided to keep them.</p>
 		</div>
 	</div>
 
 	<div class="row">
-		<a id="roadBikes" class="anchor"></a>
+		<a id="roadBikes" class="anchor" style="position:relative;">Road Bikes</a>
 		<h2>Road Bikes</h2>
 
 				<?php
 				
 				showProductsByCategory ( 'roadbikes' );
 				?>
-			</div>
+	</div>
 	<div class="row">
-		<a id="mountainBikes" class="anchor"></a>
+		<a id="mountainBikes" class="anchor">Mountain Bikes</a>
 		<h2>Mountain Bikes</h2>
 
 				<?php
 				
 				showProductsByCategory ( 'mountainbikes' );
 				?>
-			</div>
+	</div>
+    <a class="anchor" id="contact" class="anchor" style="position:relative;top:-70px;"></a>
 	<div class="row" style="min-height: 500px;">
-		<a class="anchor" id="contact" class="anchor"></a>
+		
 		<div class="">
 			<h2>Contact Me</h2>
 			<form role="form" id="contact-form" class="contact-form" action="">
@@ -165,7 +172,7 @@ get_header ();
 			$(".nav").find(".active").removeClass("active");
 			$(this).parent().addClass("active");
 		});
-		
+	/*	
 		$(window).scroll(function(){
 		var scrollTop = $(document).scrollTop();
 		var anchors = $('body').find('.anchor');
@@ -187,6 +194,8 @@ get_header ();
 			}
 		}
 		});
+        
+        */
 		
 		//handle contact form;
 		$("#EmailSent").hide();
@@ -197,10 +206,12 @@ get_header ();
 			// send email to client before moving onto worldpay payment form
 			var data = {
 			    action: 'mail_before_submit',
-			    toemail: $('#myemailfield').val(), // change this to the email field on your form
+			    toemail: $('#email').val(), // change this to the email field on your form
+			    message: $('#Message').val(),
 			    _ajax_nonce: $('#my_email_ajax_nonce').data('nonce'),
 			};
-			$.post(window.location.origin + "/wordpress/wp-admin/admin-ajax.php", data, function(response) {
+			//window.location.origin +
+			$.post( "/bikes/wp-admin/admin-ajax.php", data, function(response) {
 				$("#EmailSent").show();
 				//$('#contact-form').trigger('reset');
 				$("#contact-form").bootstrapValidator('resetForm', true);
@@ -217,10 +228,11 @@ get_header ();
 <span id="my_email_ajax_nonce" data-nonce="<?php echo wp_create_nonce( 'my_email_ajax_nonce' ); ?>"></span>	
 	<section class="container">
 		<div class="col-md-4">
-			<p>&copy; Copyright Mike's Bikes</p>
+			<p>&copy;2016 Copyright Mike's Bikes </p>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-6">
 			<p>Contact Mike</p>
+            <p><a href='mailto:mikeclark@vintagebikes.mossycity.com'>mikeclark@vintagebikes.mossycity.com</a><span style="margin-left:5px;" class="glyphicon glyphicon-envelope"></span></p>
 			
 		</div>
 	</section>

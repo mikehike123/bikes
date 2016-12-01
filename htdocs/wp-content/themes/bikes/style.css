@@ -28,26 +28,32 @@ div.imgMenu
 
 }
 
+div.imgMenu img
+{
+       width:100%
+
+}
 
 div.imgMenu .moduleRoad {
   margin: 10px;
-  width: 400px;
-  height: 300px;
+  width: 100%;
+  height: auto;
   float: left;
-  background: url(blueroadbike-400x300.jpg);
+  /* background: url(blueroadbike-400x300.jpg); */
   background-size: cover;
   position: relative;
 }
 
 div.imgMenu .moduleMountain {
   margin: 10px;
-  width: 400px;
-  height: 300px;
+  width: 100%;
+  height: auto;
   float: left;
-  background: url(mountainbikes-1.jpg);
+  /* background: url(mountainbikes-1.jpg); */
   background-size: cover;
   position: relative;
 }
+
 
 div.imgMenu h2 {
   position: absolute;
@@ -67,7 +73,7 @@ div.imgMenu .opp h2 {
 a.anchor {
 display: block;
 position: relative;
-top: -50px;
+top: -50px; 
 visibility: hidden;
 }
 .gallery img.profile {

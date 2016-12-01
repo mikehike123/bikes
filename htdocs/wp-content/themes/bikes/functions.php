@@ -284,6 +284,7 @@ function twentysixteen_scripts() {
 		'expand'   => __( 'expand child menu', 'twentysixteen' ),
 		'collapse' => __( 'collapse child menu', 'twentysixteen' ),
 	) );
+
 }
 add_action( 'wp_enqueue_scripts', 'twentysixteen_scripts' );
 
@@ -640,7 +641,7 @@ function mycustomtheme_send_mail_before_submit(){
 	if ( isset($_POST['action']) && $_POST['action'] == "mail_before_submit" ){
 
 		//send email  wp_mail( $to, $subject, $message, $headers, $attachments ); ex:
-		wp_mail($_POST['toemail'],'this is the email subject line','email message body');
+		wp_mail($_POST['toemail'],'Bike Request',$_POST['message']);
 		echo 'email sent';
 		die();
 	}
